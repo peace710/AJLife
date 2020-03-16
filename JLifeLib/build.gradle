@@ -1,0 +1,9 @@
+apply plugin: 'java-library'
+
+dependencies {
+//    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs\\asm-7.3.1.jar')
+}
+
+sourceCompatibility = "7"
+targetCompatibility = "7"
