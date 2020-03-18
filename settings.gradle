@@ -1,2 +1,2 @@
-include ':app', ':JLifeDemo', ':JLifeLib', ':gradleLife', ':JLifeReflection', ':JLifeAnnotation'
+include ':app', ':JLifeDemo', ':JLifeLib', ':gradleLife', ':JLifeReflection', ':JLifeAnnotation', ':JLifeProcessor'
 rootProject.name='AJLife'

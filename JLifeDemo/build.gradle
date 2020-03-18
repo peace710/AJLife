@@ -2,6 +2,8 @@ apply plugin: 'java-library'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    annotationProcessor  project(path: ':JLifeProcessor')
+    implementation project(path: ':JLifeAnnotation')
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
