@@ -29,6 +29,7 @@ public class ThreadFactoryMode {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        service.shutdown();
     }
 }
 
