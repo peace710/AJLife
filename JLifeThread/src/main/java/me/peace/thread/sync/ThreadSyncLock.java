@@ -1,9 +1,11 @@
-package me.peace.thread;
+package me.peace.thread.sync;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+
+import me.peace.thread.LogUtils;
 
 public class ThreadSyncLock {
     private static final String TAG = ThreadSyncLock.class.getSimpleName();

@@ -1,7 +1,9 @@
-package me.peace.thread;
+package me.peace.thread.sync;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import me.peace.thread.LogUtils;
 
 public class ThreadSync {
     private static final String TAG = ThreadSync.class.getSimpleName();

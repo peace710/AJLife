@@ -1,9 +1,11 @@
-package me.peace.thread;
+package me.peace.thread.sync;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import me.peace.thread.LogUtils;
 
 public class ThreadSyncAtomic {
     private static final String TAG = ThreadSyncAtomic.class.getSimpleName();
