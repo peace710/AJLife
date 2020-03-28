@@ -1,6 +1,8 @@
-package me.peace.design;
+package me.peace.design.responsibility_type;
 
 import java.util.ArrayList;
+
+import me.peace.design.LogUtils;
 
 
 /**

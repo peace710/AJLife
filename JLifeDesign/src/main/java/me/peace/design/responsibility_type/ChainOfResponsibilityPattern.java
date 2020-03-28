@@ -1,5 +1,7 @@
-package me.peace.design;
+package me.peace.design.responsibility_type;
 
+
+import me.peace.design.LogUtils;
 
 /**
  * 责任链模式

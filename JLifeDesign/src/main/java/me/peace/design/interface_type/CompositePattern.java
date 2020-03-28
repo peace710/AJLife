@@ -1,6 +1,8 @@
-package me.peace.design;
+package me.peace.design.interface_type;
 
 import java.util.ArrayList;
+
+import me.peace.design.LogUtils;
 
 /**
  * 组合模式

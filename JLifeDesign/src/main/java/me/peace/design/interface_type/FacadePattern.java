@@ -1,5 +1,7 @@
-package me.peace.design;
+package me.peace.design.interface_type;
 
+
+import me.peace.design.LogUtils;
 
 /**
  * 外观模式

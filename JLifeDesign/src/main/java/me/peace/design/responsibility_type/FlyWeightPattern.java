@@ -1,6 +1,8 @@
-package me.peace.design;
+package me.peace.design.responsibility_type;
 
 import java.util.HashMap;
+
+import me.peace.design.LogUtils;
 
 /**
  * 享元模式（Flyweight Pattern）

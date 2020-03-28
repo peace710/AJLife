@@ -1,4 +1,6 @@
-package me.peace.design;
+package me.peace.design.responsibility_type;
+
+import me.peace.design.LogUtils;
 
 public class SingletonPattern {
     public static void main(String[] args) {

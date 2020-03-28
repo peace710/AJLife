@@ -1,9 +1,11 @@
-package me.peace.design;
+package me.peace.design.responsibility_type;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.Date;
+
+import me.peace.design.LogUtils;
 
 /**
  * 代理模式
