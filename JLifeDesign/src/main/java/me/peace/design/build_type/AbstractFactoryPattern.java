@@ -28,7 +28,7 @@ import me.peace.design.LogUtils;
  */
 public class AbstractFactoryPattern {
     public static void main(String[] args) {
-        AbstractFactory factory = new ProduceFactory();
+        AbstractFactory factory = new ProductFactory();
         MP4Player player = factory.createMP4();
 
         player.music();
@@ -72,7 +72,7 @@ public class AbstractFactoryPattern {
         Phone createPhone();
     }
 
-    static class ProduceFactory implements AbstractFactory{
+    static class ProductFactory implements AbstractFactory{
         @Override
         public MP4Player createMP4() {
             return new MP4Player();

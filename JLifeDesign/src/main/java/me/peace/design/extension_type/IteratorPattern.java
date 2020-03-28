@@ -40,7 +40,8 @@ public class IteratorPattern {
         list.add("5.NFL");
         list.add("6.NHL");
 
-        StringIteratorImpl iterator = new StringIteratorImpl(list);
+        IteratorImpl<String> iterator = new IteratorImpl<>(list);
+
         LogUtils.i(TAG,"isFirst = "  + iterator.first());
         LogUtils.i(TAG,"isLast = "  + iterator.last());
         while (iterator.next()){
@@ -124,9 +125,4 @@ public class IteratorPattern {
 
     }
 
-    static class StringIteratorImpl extends IteratorImpl<String>{
-        public StringIteratorImpl(List<String> list) {
-            super(list);
-        }
-    }
 }
