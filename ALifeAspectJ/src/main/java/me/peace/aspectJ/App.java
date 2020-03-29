@@ -10,7 +10,15 @@ public class App {
     }
 
     public void callAround(){
-        LogUtils.d(TAG, "callAround() called");
+        LogUtils.i(TAG, "callAround() called");
+    }
+
+    public void executionLogin(String name,String pwd){
+        LogUtils.i(TAG, "executionLogin() called with: name = [" + name + "], pwd = [" + pwd + "]");
+    }
+
+    public void executionAround(){
+        LogUtils.i(TAG, "executionAround() called");
     }
 
 }
