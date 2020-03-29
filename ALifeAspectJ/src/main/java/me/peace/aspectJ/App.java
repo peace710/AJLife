@@ -3,6 +3,10 @@ package me.peace.aspectJ;
 public class App {
     private static final String TAG = App.class.getSimpleName();
 
+    static {
+        LogUtils.i(TAG, "static initializer() called");
+    }
+
     public App() {
         LogUtils.i(TAG, "App() called");
     }
