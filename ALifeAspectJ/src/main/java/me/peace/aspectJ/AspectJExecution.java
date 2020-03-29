@@ -40,16 +40,16 @@ class ExecutionAspect{
     //execution表求执行方法内部
     @Pointcut("execution(* me.peace.aspectJ.App.executionLogin(..))")
     public void executionLogin(){
-        LogUtils.i(TAG, "executionLogin() called");
+
     }
 
     @Before("executionLogin()")
-    public void beforeExecutionLogin(){
+    public void beforeExecutionLogin(JoinPoint joinPoint){
         LogUtils.i(TAG, "beforeExecutionLogin() called");
     }
 
     @After("executionLogin()")
-    public void afterExecutionLogin(){
+    public void afterExecutionLogin(JoinPoint joinPoint){
         LogUtils.i(TAG, "beforeExecutionLogin() called");
     }
 

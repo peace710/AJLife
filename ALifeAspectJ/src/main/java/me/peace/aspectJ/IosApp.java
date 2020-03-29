@@ -8,6 +8,7 @@ public class IosApp {
     private String name = "";
 
     public IosApp() {
+        LogUtils.i(TAG, "IosApp() called");
     }
 
     /**
