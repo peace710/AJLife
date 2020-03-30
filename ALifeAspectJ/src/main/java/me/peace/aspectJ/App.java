@@ -1,6 +1,6 @@
-package me.peace.aspectJ.app;
+package me.peace.aspectJ;
 
-import me.peace.aspectJ.LogUtils;
+import android.util.Log;
 
 public class App {
     private static final String TAG = App.class.getSimpleName();
@@ -26,7 +26,16 @@ public class App {
     }
 
     public void executionAround(){
-        LogUtils.i(TAG, "executionAround() called");
+
+    }
+
+    public static void showVersion(){
+        String str = null;
+        try {
+            LogUtils.i(TAG, "showVersion() called " + str.toString());
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,6 +1,4 @@
-package me.peace.aspectJ.app;
-
-import me.peace.aspectJ.LogUtils;
+package me.peace.aspectJ;
 
 public class XiaomiApp extends IosApp {
     private static final String TAG = XiaomiApp.class.getSimpleName();

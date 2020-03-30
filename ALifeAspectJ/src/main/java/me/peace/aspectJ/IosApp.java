@@ -1,6 +1,4 @@
-package me.peace.aspectJ.app;
-
-import me.peace.aspectJ.LogUtils;
+package me.peace.aspectJ;
 
 public class IosApp {
     private static final String TAG = IosApp.class.getSimpleName();

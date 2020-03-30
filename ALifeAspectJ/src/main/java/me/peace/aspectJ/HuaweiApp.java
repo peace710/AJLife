@@ -1,6 +1,4 @@
-package me.peace.aspectJ.app;
-
-import me.peace.aspectJ.LogUtils;
+package me.peace.aspectJ;
 
 public class HuaweiApp extends IosApp{
     private static final String TAG = HuaweiApp.class.getSimpleName();

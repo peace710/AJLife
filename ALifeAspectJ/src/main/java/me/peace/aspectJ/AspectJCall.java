@@ -7,8 +7,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-import me.peace.aspectJ.app.App;
-
 public class AspectJCall {
     private static final String TAG = AspectJCall.class.getSimpleName();
 
@@ -51,9 +49,9 @@ class CallAspect{
     // call是指方法被调用时
     // public是指切入的方法访问权限
     // *是通配符，代表任意返回类型，也可以指定明确的返回类型
-    // me.peace.aspectJ.app.App.callLogin指定类的方法名
+    // me.peace.aspectJ.App.callLogin指定类的方法名
     // (..)代表方法可以是任意参数，可以有，也可以没有
-    @Pointcut("call(public * me.peace.aspectJ.app.App.callLogin(..))")
+    @Pointcut("call(public * me.peace.aspectJ.App.callLogin(..))")
     public void callLogin(){
 
     }
@@ -62,7 +60,7 @@ class CallAspect{
     // @Before表示在切入之前执行,这里是指调用方法之前
     // callLogin()引用之前的定义,即调用App类的名为callLogin的方法,且访问权限为public,返回类型任意
     // 可以省略callLogin定义,直接写成如下的方式
-    // @Before("call(public * me.peace.aspectJ.app.App.callLogin(..))")
+    // @Before("call(public * me.peace.aspectJ.App.callLogin(..))")
     @Before("callLogin()")
     public void beforeCallLogin(JoinPoint joinPoint){
         LogUtils.i(TAG, "beforeCallLogin() called");
@@ -99,7 +97,7 @@ class CallAspect{
      */
 
     // @Around表示替换原来的方法,即替换了callAround方法
-    @Around("call(public * me.peace.aspectJ.app.App.callAround(..))")
+    @Around("call(public * me.peace.aspectJ.App.callAround(..))")
     public void aroundCallAround(JoinPoint joinPoint){
         LogUtils.i(TAG, "aroundCallAround() called");
     }

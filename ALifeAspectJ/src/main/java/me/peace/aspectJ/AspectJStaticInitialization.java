@@ -7,8 +7,6 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
-import me.peace.aspectJ.app.App;
-
 public class AspectJStaticInitialization {
     private static final String TAG = AspectJStaticInitialization.class.getSimpleName();
 
@@ -21,7 +19,7 @@ public class AspectJStaticInitialization {
 class StaticInitializationAspect{
     private static final String TAG = StaticInitializationAspect.class.getSimpleName();
 
-    @Pointcut("staticinitialization(me.peace.aspectJ.app.App)")
+    @Pointcut("staticinitialization(me.peace.aspectJ.App)")
     public void staticInitialization(){
     }
 
