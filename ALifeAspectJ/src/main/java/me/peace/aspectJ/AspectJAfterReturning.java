@@ -23,8 +23,9 @@ class AfterReturningAspect{
 
     }
 
-    //@AfterReturning pointcut为织入代码的方法
-    //returning为下方方法内的参数变量名，名称要对应，参数类型与返回值类型对应
+    // @AfterReturning 用于拦截在执行return代码，获取返回值信息
+    // pointcut为织入代码的方法
+    // returning为下方方法内的参数变量名，名称要对应，参数类型与返回值类型对应
     @AfterReturning(pointcut = "afterRet()",returning = "ret")
     public void afterRetValue(int ret){
         LogUtils.i(TAG, "afterRetValue() called with: ret = [" + ret + "]");
