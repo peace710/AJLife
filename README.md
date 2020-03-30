@@ -1,2 +1,2 @@
 # AJLife
-Some case when learning java and android
+Some case when learning Android and Java
