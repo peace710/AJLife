@@ -1,4 +1,6 @@
-package me.peace.aspectJ;
+package me.peace.aspectJ.app;
+
+import me.peace.aspectJ.LogUtils;
 
 public class App {
     private static final String TAG = App.class.getSimpleName();

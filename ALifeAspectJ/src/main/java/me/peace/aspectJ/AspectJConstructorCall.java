@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+import me.peace.aspectJ.app.App;
+
 public class AspectJConstructorCall {
     private static final String TAG = AspectJConstructorCall.class.getSimpleName();
 
@@ -36,8 +38,8 @@ class ConstructorCallAspect{
      */
 
     //构造方法没有返回值
-    // me.peace.aspectJ.App.new代表App的构造方法（.new代表为构造方法）
-    @Pointcut("call(public me.peace.aspectJ.App.new(..))")
+    // me.peace.aspectJ.app.App.new代表App的构造方法（.new代表为构造方法）
+    @Pointcut("call(public me.peace.aspectJ.app.App.new(..))")
     public void callConstructor(){
 
     }

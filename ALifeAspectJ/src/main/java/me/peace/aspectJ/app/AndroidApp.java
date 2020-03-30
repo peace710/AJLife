@@ -1,4 +1,6 @@
-package me.peace.aspectJ;
+package me.peace.aspectJ.app;
+
+import me.peace.aspectJ.LogUtils;
 
 public class AndroidApp {
     private static final String TAG = AndroidApp.class.getSimpleName();

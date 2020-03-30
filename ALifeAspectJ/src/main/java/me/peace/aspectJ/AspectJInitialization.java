@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+import me.peace.aspectJ.app.HuaweiApp;
+
 public class AspectJInitialization {
     private static final String TAG = AspectJInitialization.class.getSimpleName();
 
@@ -20,7 +22,7 @@ class InitializationAspect{
     private static final String TAG = InitializationAspect.class.getSimpleName();
 
     //调用Constructor super方法之后的代码块
-    @Pointcut("initialization(me.peace.aspectJ.HuaweiApp.new(..))")
+    @Pointcut("initialization(me.peace.aspectJ.app.HuaweiApp.new(..))")
     public void initializationConstructor(){
     }
 

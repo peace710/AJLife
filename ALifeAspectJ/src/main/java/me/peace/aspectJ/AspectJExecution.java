@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+import me.peace.aspectJ.app.App;
+
 public class AspectJExecution {
     private static final String TAG = AspectJExecution.class.getSimpleName();
 
@@ -38,7 +40,7 @@ class ExecutionAspect{
 
 
     //execution表求执行方法内部
-    @Pointcut("execution(* me.peace.aspectJ.App.executionLogin(..))")
+    @Pointcut("execution(* me.peace.aspectJ.app.App.executionLogin(..))")
     public void executionLogin(){
 
     }
@@ -60,7 +62,7 @@ class ExecutionAspect{
      *         executionAround_aroundBody1$advice(this, var1, ExecutionAspect.aspectOf(), var1);
      *     }
      */
-    @Around("execution(public * me.peace.aspectJ.App.executionAround(..))")
+    @Around("execution(public * me.peace.aspectJ.app.App.executionAround(..))")
     public void aroundExecutionAround(JoinPoint joinPoint){
         LogUtils.i(TAG, "aroundExecutionAround() called");
     }

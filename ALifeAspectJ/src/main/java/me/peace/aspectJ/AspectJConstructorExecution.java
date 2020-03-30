@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+import me.peace.aspectJ.app.AndroidApp;
+
 public class AspectJConstructorExecution {
     private static final String TAG = AspectJConstructorExecution.class.getSimpleName();
 
@@ -35,7 +37,7 @@ class ConstructorExecutionAspect{
      *     }
      */
 
-    @Pointcut("execution(public me.peace.aspectJ.AndroidApp.new(..))")
+    @Pointcut("execution(public me.peace.aspectJ.app.AndroidApp.new(..))")
     public void executionConstructor(){
 
     }

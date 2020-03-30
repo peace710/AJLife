@@ -7,6 +7,8 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 
+import me.peace.aspectJ.app.IosApp;
+
 public class AspectJSetGet {
     private static final String TAG = AspectJSetGet.class.getSimpleName();
 
@@ -26,12 +28,12 @@ class SetGetAspect{
     //缺省了访问权限代表任意访问权限
     //第一个*代表任意类型
     //第二个*代表任意字段
-    @Pointcut("set(* me.peace.aspectJ.IosApp.*)")
+    @Pointcut("set(* me.peace.aspectJ.app.IosApp.*)")
     public void setField(){
 
     }
 
-    @Pointcut("get(* me.peace.aspectJ.IosApp.*)")
+    @Pointcut("get(* me.peace.aspectJ.app.IosApp.*)")
     public void getField(){
 
     }
