@@ -47,8 +47,8 @@ class AdviceExecutionAspect{
     }
 
     //替换其他JPoint方法，直接执行该段代码
-    @Around("adviceExecutionPoint()")
-    public void arroundAdviceExecution(){
-        LogUtils.i(TAG, "arroundAdviceExecution() called");
-    }
+//    @Around("adviceExecutionPoint()")
+//    public void arroundAdviceExecution(){
+//        LogUtils.i(TAG, "arroundAdviceExecution() called");
+//    }
 }
