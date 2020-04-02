@@ -1,4 +1,4 @@
-package me.peace.aj;
+package me.peace.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 

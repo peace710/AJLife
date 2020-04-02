@@ -4,7 +4,7 @@ android {
     compileSdkVersion 28
     buildToolsVersion "29.0.1"
     defaultConfig {
-        applicationId "me.peace.aj"
+        applicationId "me.peace.app"
         minSdkVersion 15
         targetSdkVersion 28
         versionCode 1
@@ -28,6 +28,9 @@ dependencies {
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation project(path: ':ALifeAspectJ')
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation project(path: ':JLifeLib')
+    implementation project(path: ':ALifeHook')
 }
 
 import org.aspectj.bridge.IMessage
