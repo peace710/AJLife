@@ -1,8 +1,10 @@
-package me.peace.app.base;
+package me.peace.base;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
@@ -22,4 +24,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract void initView();
 
     protected abstract void initListener();
+
+    protected void t(@StringRes int resId){
+        Toast.makeText(this,resId,Toast.LENGTH_LONG).show();
+    }
+
+    protected void t(String text){
+        Toast.makeText(this,text,Toast.LENGTH_LONG).show();
+    }
 }

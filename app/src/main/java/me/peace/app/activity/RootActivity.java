@@ -10,11 +10,16 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.peace.app.R;
 import me.peace.app.adapter.StringAdapter;
-import me.peace.app.base.BaseActivity;
+import me.peace.base.BaseActivity;
+import me.peace.hook.activity.HookClickActivity;
 
 public class RootActivity extends BaseActivity {
+
+    private Class[] targetClass = new Class[]{HookClickActivity.class};
+
     private RecyclerView root;
     private List<String> list;
+    private List<Class> target;
     private StringAdapter adapter;
 
     @Override
@@ -40,7 +45,8 @@ public class RootActivity extends BaseActivity {
     private void initMenu(){
         Resources resources = getResources();
         list = new ArrayList<>(Arrays.asList(resources.getStringArray(R.array.root)));
-        adapter = new StringAdapter(this,list);
+        target = new ArrayList<>(Arrays.asList(targetClass));
+        adapter = new StringAdapter(this,list,target);
         root.setLayoutManager(new LinearLayoutManager(this));
         root.setAdapter(adapter);
     }

@@ -1,2 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.peace.hook" />
+    package="me.peace.hook" >
+
+    <application>
+        <activity android:name=".activity.HookClickActivity"
+            android:screenOrientation="portrait">
+        </activity>
+    </application>
+
+</manifest>

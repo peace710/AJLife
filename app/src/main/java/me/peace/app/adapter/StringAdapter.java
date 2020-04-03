@@ -12,16 +12,19 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import me.peace.app.R;
+import me.peace.app.router.Router;
 
 public class StringAdapter extends RecyclerView.Adapter<StringAdapter.StringViewHolder> {
     private static final String TAG = StringAdapter.class.getSimpleName();
 
     private Context context;
     private List<String> strings;
+    private List<Class> target;
 
-    public StringAdapter(Context context, List<String> strings) {
+    public StringAdapter(Context context, List<String> strings,List<Class> target) {
         this.context = context;
         this.strings = strings;
+        this.target = target;
     }
 
     @NonNull
@@ -32,12 +35,12 @@ public class StringAdapter extends RecyclerView.Adapter<StringAdapter.StringView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull StringViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull StringViewHolder holder, final int position) {
         holder.text.setText(strings.get(position));
         holder.item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Router.getInstance().go(context,target.get(position));
             }
         });
     }
