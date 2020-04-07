@@ -28,3 +28,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     api project(path: ':ALifeLib')
 }
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}

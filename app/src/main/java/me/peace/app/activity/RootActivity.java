@@ -1,11 +1,13 @@
 package me.peace.app.activity;
 
 import android.content.res.Resources;
+import android.os.Bundle;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.peace.app.R;
@@ -21,6 +23,11 @@ public class RootActivity extends BaseActivity {
     private List<String> list;
     private List<Class> target;
     private StringAdapter adapter;
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     protected int offerContentViewId() {
