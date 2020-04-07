@@ -8,6 +8,7 @@ groovy目录用来实现自定义插件
 terminal执行gradlew clean assembleDebug
 如果有打印==>inside life cycle plugin，说明自定义插件成功
 示例代码如下
+-------------------------------------------------------------
 package me.peace.plugin
 
 import org.gradle.api.Plugin
@@ -19,3 +20,8 @@ public class LifeCyclePlugin implements Plugin<Project>{
         println("==>inside life cycle plugin")
     }
 }
+--------------------------------------------------------------
+成熟的三方gradle插件HiBeaver
+
+自定义Transform
+.class文件转换.dex文件中会执行transform任务
