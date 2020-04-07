@@ -50,11 +50,15 @@ public class HookClickActivity extends BaseActivity {
 
     private void hook(View v){
         try {
+            //反射获取View里listenerInfo对象，调用了View的getListenerInfo方法
             Object obj = HookUtils.getObjectWithMethod(View.class,v,"getListenerInfo");
             Class clazz = Class.forName("android.view.View$ListenerInfo");
+            //反射获取ListerInfo中的mOnClickListener对象
             Field field = HookUtils.getField(clazz,"mOnClickListener");
             View.OnClickListener src = (View.OnClickListener) field.get(obj);
+            //创建动态代理，在mOnClickListener外包含我们的逻辑
             View.OnClickListener proxy = Hook.create(src,invokeListener);
+            //将代理的listener重新设入listenerInfo里
             HookUtils.setField(obj,field,proxy);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
