@@ -1,0 +1,21 @@
+groovy目录用来实现自定义插件
+
+1)自定义resources/META-INF/gradle-plugins目录
+2)该目录中创建me.peace.asm.lifecycle.properties,内容为implementation-class=me.peace.plugin.LifeCyclePlugin
+3)其中me.peace.asm.lifecycle为插件名,即apply plugin 'me.peace.asm.lifecycle'
+4)me.peace.plugin.LifeCyclePlugin为插件实现类
+
+terminal执行gradlew clean assembleDebug
+如果有打印==>inside life cycle plugin，说明自定义插件成功
+示例代码如下
+package me.peace.plugin
+
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+public class LifeCyclePlugin implements Plugin<Project>{
+    @Override
+    void apply(Project project) {
+        println("==>inside life cycle plugin")
+    }
+}

@@ -5,6 +5,9 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+        //自定义插件的maven地址
+        maven {url 'asm_lifecycle_repo'}
+
     }
     dependencies {
         classpath fileTree(dir:'plugins', include:['*.jar'])
@@ -14,6 +17,8 @@ buildscript {
 //         classpath 'com.hujiang.aspectjx:gradle-android-plugin-aspectjx:2.0.8'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+        //加载自定义插件 group + module + version
+        classpath 'me.peace.plugin:asm_gradle_plugin:1.0.0'
     }
 }
 

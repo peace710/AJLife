@@ -1,0 +1,24 @@
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //引入gradleApi
+    implementation gradleApi()
+    //引入Groovy sdk
+    implementation localGroovy()
+    implementation 'com.android.tools.build:gradle:3.5.0'
+}
+
+//插件group、version
+group='me.peace.plugin'
+version='1.0.0'
+
+//用于上传本地maven,路径为项目中的asm_lifecycle_repo目录
+uploadArchives{
+    repositories {
+        mavenDeployer{
+            repository(url:uri('../asm_lifecycle_repo'))
+        }
+    }
+}

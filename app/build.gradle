@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+//引用自定义的lifecycle插件
+apply plugin: 'me.peace.asm.lifecycle'
+
+
 android {
     compileSdkVersion 28
     buildToolsVersion "29.0.1"
