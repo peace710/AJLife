@@ -1,0 +1,57 @@
+task hello{
+    doLast{
+        println("hello")
+    }
+}
+
+
+
+task world{
+    doLast {
+        println("world")
+    }
+}
+
+task count{
+    doLast {
+        5.times {
+            println("$it")
+        }
+    }
+}
+
+task taskX(dependsOn : "hello"){
+    doLast{
+        println("taskX")
+    }
+}
+
+5.times {
+    counter ->
+        task "task$counter"{
+            doLast{
+                println("this is task$counter")
+            }
+        }
+}
+
+task taskInfo{
+    ext.id = 5
+    ext.name = "launcher"
+}
+
+task execTask{
+    doLast{
+        println("id = " + taskInfo.id + ", name = " + taskInfo.ext.name)
+    }
+}
+
+println "==>" + name
+println "==>" + project.name
+println "==>" + project.path
+println "==>" + project.description
+println "==>" + project.projectDir
+println "==>" + project.buildDir
+println "==>" + project.group
+println "==>" + project.version
+println "==>" + project.ant

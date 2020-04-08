@@ -1,57 +1,266 @@
-task hello{
+//定义task
+task configureTask1{
+    println "configureTask1"
+}
+
+task configureTask2{
+    println "configureTask2"
+}
+
+//执行gradlew configureTask1
+//结果
+// >Configure project :gradleLife
+// configureTask1
+// configureTask2
+//gradle脚本处于配置阶段所有task均会执行一次
+
+
+//task actions
+//doFirst:task 执行时最先执行的操作
+//doLast:task 执行时最后执行的操作
+configureTask1.doFirst{
+    println "configureTask1 doFirst"
+}
+
+//configureTask1.doLast {
+//    println "configureTask1 doLast "
+//}
+
+configureTask1.doLast {
+    println "configureTask1 doLast "
+}
+
+configureTask2.doLast {
+    println "configureTask1 doLast "
+}
+
+//执行gradlew configureTask1
+//结果
+//> Configure project :gradleLife
+//configureTask1
+//configureTask2
+//
+//> Task :gradleLife:configureTask1
+//configureTask1 doFirst
+//configureTask1 doLast
+//处于配置阶段的代码均会执行，而task actions的则只有configureTask1执行
+
+//创建Task的几种写法
+task createTask1{
     doLast{
-        println("hello")
+        println "createTask1 doLast"
     }
 }
 
+//采用Project.task(String name)方法创建
+project.task("createTask2").doLast {
+    println "createTask2 doLast"
+}
 
+//采用 TaskContainer.create(String name) 方法来创建
+project.tasks.create("createTask3").doLast {
+    println "createTask3 doLast"
+}
 
-task world{
+task paramsTask(description: "the desc of params task", group: "ParamsTaskGroup", dependsOn:
+        [createTask1, createTask2], overwrite: true){
     doLast {
-        println("world")
+        println "paramsTask doLast"
+    }
+}
+//执行gradlew paramsTask
+//执行结果
+//> Configure project :gradleLife
+//configureTask1
+//configureTask2
+//
+//> Task :gradleLife:createTask1
+//createTask1 doLast
+//
+//> Task :gradleLife:createTask2
+//createTask2 doLast
+//
+//> Task :gradleLife:paramsTask
+//paramsTask doLast
+
+class HelloTask extends DefaultTask{
+    String userName = "James"
+    int age = 18
+    //构造方法必须用@javax.inject.Inject注解标识
+    @javax.inject.Inject
+    HelloTask(int age){
+        this.age = age
+    }
+
+    //通过@TaskAction注解来标识该Task要执行的动作
+    @TaskAction
+    def hello(){
+        println "Hello $userName ,my age is ${age}"
     }
 }
 
-task count{
-    doLast {
-        5.times {
-            println("$it")
-        }
+//通过constructorArgs参数来指定构造方法的参数值
+task hello1(type:HelloTask,constructorArgs:[30])
+
+//通过type参数指定task的父类，可以在配置代码里修改父类的属性
+task hello2(type:HelloTask,constructorArgs:[18]){
+    userName = "Kobe"
+}
+
+//执行结果分别为
+//> Task :gradleLife:hello1
+//Hello James ,my age is 30
+
+//> Task :gradleLife:hello2
+//Hello Kobe ,my age is 18
+
+//gradle进阶
+class NBATask extends DefaultTask{
+    String playerName = "Bryant"
+    int score = 81
+
+    @TaskAction
+    def perform(){
+        println "$playerName got $score score"
     }
 }
 
-task taskX(dependsOn : "hello"){
+task firstPeriod{
     doLast{
-        println("taskX")
+        println "first period playing"
     }
 }
 
-5.times {
-    counter ->
-        task "task$counter"{
-            doLast{
-                println("this is task$counter")
-            }
-        }
-}
-
-task taskInfo{
-    ext.id = 5
-    ext.name = "launcher"
-}
-
-task execTask{
+task secondPeriod{
     doLast{
-        println("id = " + taskInfo.id + ", name = " + taskInfo.ext.name)
+        println "second period playing"
     }
 }
 
-println "==>" + name
-println "==>" + project.name
-println "==>" + project.path
-println "==>" + project.description
-println "==>" + project.projectDir
-println "==>" + project.buildDir
-println "==>" + project.group
-println "==>" + project.version
-println "==>" + project.ant
+task thirdPeriod{
+    doLast{
+        println "third period playing"
+    }
+}
+
+task finalPeriod(type:NBATask,group: "West")
+//对task进行配置
+finalPeriod.configure{
+    println "final period playing"
+    score = 100
+}
+//获取task name
+println "task name is ${finalPeriod.getName()}"
+//获取task group
+println "task group is ${finalPeriod.getGroup()}"
+//设置task里的属性值，设置 score = 99
+finalPeriod.setProperty("score", 99)
+//获取task里的某个属性值
+println "task score is ${finalPeriod.property('score')}"
+//设置依赖的task，只有firstPeriod task执行完后才会执行finalPeriod task
+finalPeriod.dependsOn(firstPeriod)
+//设置终结者任务，执行完finalPeriod task之后会执行secondPeriod task，通常可以用该方法做一些清理操作
+finalPeriod.finalizedBy(secondPeriod)
+//如果同时执行finalPeriod、thirdPeriod这2个task，会确保thirdPeriod执行完之后才执行finalPeriod这个task，用这个来保证执行顺序
+finalPeriod.setMustRunAfter([thirdPeriod])
+
+//设置满足某个条件后才执行该task
+finalPeriod.setOnlyIf{
+    return finalPeriod.property("score") == 99
+}
+
+//执行gradlew -q thirdPeriod
+//运行结果
+//configureTask1
+//configureTask2
+//final period playing
+//task name is finalPeriod
+//task group is West
+//task score is 99
+//third period playing
+
+//TaskContainer接口解析
+//当有task创建时
+getTasks().whenTaskAdded {
+    Task task -> println "${task.getName()} is added to the task container"
+}
+//采用create(name: String)创建
+getTasks().create("task1")
+//采用create(options: Map<String, ?>)创建
+getTasks().create([name:"task2",group: "MyGroup",description: "the desc of task2",dependsOn:
+        ["task1"]])
+//采用create(options: Map<String, ?>, configure: Closure)创建
+getTasks().create("task3",{
+    group "MyGroup"
+    setDescription "the desc of task3"
+    setDependsOn(["task1","task2"])
+})
+
+//执行gradlew -q tasks --all
+//执行结果
+//MyGroup tasks
+//-------------
+//gradleLife:task2 - the desc of task2
+//gradleLife:task3 - the desc of task3
+
+//通过名字查找指定的task
+def task3 = getTasks().findByName("task3")
+println "findByName() return task is " + task3
+
+//遍历所有的task
+def taskList = getTasks().withType(DefaultTask)
+def count = 0
+taskList.all{
+    Task task -> println "${count++} task name is ${task.name}"
+}
+
+//增量构建
+task up2date1{
+    //设置inputs
+    inputs.property("name","peace")
+    inputs.property("score",100)
+    //设置outputs
+    outputs.file("$buildDir/up2date")
+
+    doLast{
+        println "doing up2date task 1"
+    }
+}
+
+task up2date2{
+    doLast{
+        println "doing up2date task 2"
+    }
+}
+
+//执行gradlew -q up2date1 up2date2
+//结果
+//第一次
+//doing up2date task 2
+//doing up2date task 2
+//第二次
+//doing up2date task 2
+
+class Up2DateTask extends DefaultTask{
+    @Input
+    String username
+    @Input
+    int score
+
+    @OutputDirectory
+    File destDir
+
+    @TaskAction
+    def update(){
+        println "$username got $score score"
+    }
+}
+
+task up2date3(type:Up2DateTask){
+    username = "peace"
+    score = 100
+    destDir = file("$buildDir/update")
+}
+
+//project类
+

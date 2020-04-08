@@ -1,0 +1,58 @@
+gradle基础入门
+------------------------------
+task hello{
+    doLast{
+        println("hello")
+    }
+}
+------------------------------
+1)执行一个task,gradlew taskName,比如gradlew hello
+2)获取脚本中所有的task: gradlew tasks --all
+3)减少执行时的杂音,增加-q选项，比如：gradlew -q tasks --all
+
+gradle构建的生命周期
+1)初始化
+Gradle为每个项目创建一个Project实例，在多项目构建中，Gradle会找出哪些项目依赖需要参与到构建中
+
+2)配置
+执行所有项目的构建脚本，也就是执行每个项目的build.gradle文件。这里需要注意的是，task里的配置代码也会在这个阶段执行
+
+3)执行
+Gradle按照依赖顺序依次执行task
+
+
+gradle中定义task
+task myTask
+task myTask { configure closure }
+task myTask(type: SomeType)
+task myTask(type: SomeType) { configure closure }
+
+
+TaskContainer接口解析
+TaskContainer 是用来管理所有的 Task 实例集合的，
+可以通过 Project.getTasks() 来获取 TaskContainer 实例
+
+org.gradle.api.tasks.TaskContainer接口：
+//查找task
+findByPath(path: String): Task
+getByPath(path: String): Task
+getByName(name: String): Task
+withType(type: Class): TaskCollection
+matching(condition: Closure): TaskCollection
+
+//创建task
+create(name: String): Task
+create(name: String, configure: Closure): Task
+create(name: String, type: Class): Task
+create(options: Map<String, ?>): Task
+create(options: Map<String, ?>, configure: Closure): Task
+
+//当task被加入到TaskContainer时的监听
+whenTaskAdded(action: Closure)
+
+Task增量构建
+Gradle 支持一种叫做 up-to-date 检查的功能，也就是常说的增量构建。
+Gradle 的 Task 会把每次运行的结果缓存下来，当下次运行时，
+会检查输出结果有没有变更，如果没有变更则跳过运行，这样可以提高 Gradle 的构建速度。
+通常，一个 task 会有一些输入(inputs)和一些输出(outputs)，task 的输入会影响其输出结果。
+当你自定义 task class 时，可以通过注解来实现增量构建，这是一种更加灵活方便的方式。
