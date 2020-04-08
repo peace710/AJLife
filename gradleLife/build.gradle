@@ -263,4 +263,142 @@ task up2date3(type:Up2DateTask){
 }
 
 //project类
+//getter/setter属性
+File buildDir = getBuildDir()
+println "buildDir = ${buildDir.getAbsolutePath()}"
 
+String name = getName()
+println "project name = $name"
+
+setDescription("the desc of project")
+String desc = getDescription()
+println "project description = $desc"
+
+String path = getPath()
+println "project path = $path"
+
+class VersionInfo{
+    String version
+    boolean release
+
+    VersionInfo(String version,boolean release){
+        this.version = version
+        this.release = release
+    }
+
+    String toString(){
+        return "V-${version}-${release?"release":"debug"}"
+    }
+}
+
+setVersion(new VersionInfo("1.0.0",true))
+println "project version = ${getVersion()}"
+
+setGroup "VersionGroup"
+println "project group = ${getGroup()}"
+
+//执行gradlew -q tasks
+//执行结果
+//buildDir = D:\Workspace\AJLife\gradleLife\build
+//project name = gradleLife
+//project description = the desc of project
+//project path = :gradleLife
+//project version = V-1.0.0-release
+//project group = VersionGroup
+
+//文件操作
+//创建目录
+File mkDir = mkdir("${buildDir}/test")
+File mkDir2 = mkdir("${buildDir}/test2")
+println "is dir create successful : ${mkDir.exists()},${mkDir2.exists()}"
+
+//执行gradlew -q tasks
+//结果is dir create successful : true,true
+
+//定位文件
+File testDir = file("${buildDir}/test")
+println "test dir exists = ${testDir.exists()}"
+
+FileCollection fileCollection = files("${buildDir}/test","${buildDir}/test2")
+fileCollection.each {
+    File file ->
+        println file.name
+}
+Set<File> set = fileCollection.getFiles()
+println "file size = ${set.size()}"
+
+//执行gradlew -q tasks
+//执行结果
+//test dir exists = true
+//test
+//test2
+//file size = 2
+
+//创建文件树
+file("${buildDir}/t1.txt").createNewFile()
+file("${buildDir}/test/t2.txt").createNewFile()
+file("${buildDir}/t1.java").createNewFile()
+
+//通过基准目录创建文件树，参数可以为相对目录，也可以为绝对目录
+println "create file tree with base dir"
+ConfigurableFileTree fileTree1 = fileTree("build")
+fileTree1.include "*.txt","*/*.txt"
+fileTree1.exclude "*.java"
+fileTree1.each {
+    file -> println file
+}
+
+//通过闭包创建文件树
+println "create file tree with closure"
+ConfigurableFileTree fileTree2 = fileTree("build"){
+    include "*.txt","*/*.txt"
+    exclude "*.java"
+}
+fileTree2.each {
+    file -> println file
+}
+
+//通过map配置来创建文件树
+println "create file tree with map"
+def fileTree3 = fileTree(dir:"build",include:["*.txt","*/*.txt"],exclude:"*/*.java")
+fileTree3.each {
+    file -> println file
+}
+//执行结果
+//create file tree with base dir
+//D:\Workspace\AJLife\gradleLife\build\t1.txt
+//D:\Workspace\AJLife\gradleLife\build\test\t2.txt
+//create file tree with closure
+//D:\Workspace\AJLife\gradleLife\build\t1.txt
+//D:\Workspace\AJLife\gradleLife\build\test\t2.txt
+//create file tree with map
+//D:\Workspace\AJLife\gradleLife\build\t1.txt
+//D:\Workspace\AJLife\gradleLife\build\test\t2.txt
+
+//复制与删除文件
+task copyFile(type:Copy){
+    //复制build目录下所有文件
+    from "build"
+    //复制单个文件
+    from "test.java"
+    //复制某个文件树下所有的文件
+    from fileTree("build")
+
+    include "*.txt"
+    include "*.java"
+    include "t1.txt"
+    //指定目标目录
+    into "outputs"
+    rename{
+        fileName ->
+            return fileName.endsWith(".java")?"rename_" + fileName:fileName
+    }
+    //通过正则表达式映射文件名：atestb.java会映射成afileb.java
+    rename '(.*)test(.*)','$1file$2'
+}
+
+task deleteFile{
+    doLast{
+        delete("${buildDir}")
+    }
+}
