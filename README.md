@@ -10,4 +10,5 @@ Some case when learning Android and Java
 [6.数据结构](https://github.com/peace710/AJLife/tree/master/JLifeDataStructure/src/main/java/me/peace/data/structure)<br/>
 [7.Gradle上](https://github.com/peace710/AJLife/tree/master/gradleLife)<br/>
 [8.Gradle下](https://github.com/peace710/GradleLife)<br/>
+[9.Hook](https://github.com/peace710/AJLife/tree/master/ALifeHook/src/main/java/me/peace/hook)<br/>
 
