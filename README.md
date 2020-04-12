@@ -8,3 +8,6 @@ Some case when learning Android and Java
 [4.设计模式](https://github.com/peace710/AJLife/tree/master/JLifeDesign/src/main/java/me/peace/design)<br/>
 [5.AspectJ](https://github.com/peace710/AJLife/tree/master/ALifeAspectJ/src/main/java/me/peace/aspectJ)<br/>
 [6.数据结构](https://github.com/peace710/AJLife/tree/master/JLifeDataStructure/src/main/java/me/peace/data/structure)<br/>
+[7.Gradle上](https://github.com/peace710/AJLife/tree/master/gradleLife)<br/>
+[8.Gradle下](https://github.com/peace710/GradleLife)<br/>
+
