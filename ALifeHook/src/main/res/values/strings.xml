@@ -3,4 +3,6 @@
     <string name="hook_click">hook点击事件</string>
     <string name="pop_a_toast">弹出一个吐司</string>
     <string name="toast_content">吐司已经出来了</string>
+    <string name="hook_start_activity">hook start activity</string>
+    <string name="new_activity">a new activity</string>
 </resources>
