@@ -15,10 +15,13 @@ import me.peace.app.adapter.StringAdapter;
 import me.peace.base.BaseActivity;
 import me.peace.hook.activity.HookActivity;
 import me.peace.hook.activity.HookClickActivity;
+import me.peace.jetpack.livedata.LiveDataMainActivity;
+import me.peace.jetpack.livedata.ext.LiveDataExtMainActivity;
 
 public class RootActivity extends BaseActivity {
 
-    private Class[] targetClass = new Class[]{ HookClickActivity.class , HookActivity.class};
+    private Class[] targetClass = new Class[]{ HookClickActivity.class , HookActivity.class,
+        LiveDataMainActivity.class, LiveDataExtMainActivity.class};
 
     private RecyclerView root;
     private List<String> list;

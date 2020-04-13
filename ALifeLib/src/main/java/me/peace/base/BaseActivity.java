@@ -15,6 +15,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         initListener();
         init();
+        setTitle(this.getClass().getSimpleName());
     }
 
     protected abstract int offerContentViewId();

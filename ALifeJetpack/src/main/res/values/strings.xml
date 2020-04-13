@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">ALifeJetpack</string>
+    <string name="set_value">set_value</string>
+    <string name="post_value">post_value</string>
+    <string name="set_value_self">set_value_2_self</string>
+    <string name="post_value_self">post_value_2_self</string>
+    <string name="set_value_child">set_value_2_child</string>
+    <string name="post_value_child">post_value_2_child</string>
+    <string name="set_value_main">set_value_2_main</string>
+    <string name="post_value_main">post_value_2_main</string>
+    <string name="go_2_child">go to child</string>
+</resources>

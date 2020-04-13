@@ -3,5 +3,7 @@
     <string-array name="root">
         <item>Hook Button Click</item>
         <item>Hook Start Activity</item>
+        <item>Jetpack LiveData</item>
+        <item>Jetpack LiveData Ext</item>
     </string-array>
 </resources>
