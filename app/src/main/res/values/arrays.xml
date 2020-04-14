@@ -5,5 +5,7 @@
         <item>Hook Start Activity</item>
         <item>Jetpack LiveData</item>
         <item>Jetpack LiveData Ext</item>
+        <item>Jetpack LifeCycle</item>
+        <item>Jetpack ViewModel</item>
     </string-array>
 </resources>

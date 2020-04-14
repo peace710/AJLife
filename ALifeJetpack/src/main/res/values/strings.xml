@@ -9,4 +9,8 @@
     <string name="set_value_main">set_value_2_main</string>
     <string name="post_value_main">post_value_2_main</string>
     <string name="go_2_child">go to child</string>
+    <string name="lifecycle_child">go to child</string>
+    <string name="increment">increment</string>
+    <string name="common">common:</string>
+    <string name="view_model">view_model:</string>
 </resources>
