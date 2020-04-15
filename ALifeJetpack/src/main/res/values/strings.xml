@@ -16,5 +16,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="navi_2_fragment">Navi to fragment</string>
+    <string name="navi_2_fragment">go to fragment</string>
+    <string name="navi_3_fragment">go to fragment with args</string>
 </resources>

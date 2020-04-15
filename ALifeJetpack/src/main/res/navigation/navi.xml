@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navi"
+    android:id="@+id/navigation"
     app:startDestination="@id/navi">
 
     <fragment
@@ -17,11 +17,42 @@
             app:exitAnim="@anim/slide_out_left"
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_navi_to_navi3"
+            app:destination="@id/navi3"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
 
     </fragment>
     <fragment
         android:id="@+id/navi2"
         android:name="me.peace.jetpack.navigation.Navi2"
         android:label="fragment_navi2"
-        tools:layout="@layout/fragment_navi2" />
+        tools:layout="@layout/fragment_navi2">
+    </fragment>
+    <fragment
+        android:id="@+id/navi3"
+        android:name="me.peace.jetpack.navigation.Navi3"
+        android:label="fragment_navi3"
+        tools:layout="@layout/fragment_navi3">
+
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="unknown"
+            />
+        <argument
+            android:name="age"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+        <argument
+            android:name="job"
+            app:argType="string"
+            android:defaultValue="unknown"
+            />
+
+    </fragment>
 </navigation>

@@ -5,11 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".navigation.Navi">
 
-    <!-- TODO: Update blank fragment layout -->
-    <Button
-        android:id="@+id/navi"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/hello_blank_fragment" />
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/navi2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/navi_2_fragment" />
+
+        <Button
+            android:id="@+id/navi3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/navi_3_fragment" />
+
+    </LinearLayout>
 
 </FrameLayout>
