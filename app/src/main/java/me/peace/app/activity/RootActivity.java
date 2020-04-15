@@ -18,6 +18,7 @@ import me.peace.hook.activity.HookClickActivity;
 import me.peace.jetpack.lifecycle.LifeCycleActivity;
 import me.peace.jetpack.livedata.LiveDataMainActivity;
 import me.peace.jetpack.livedata.ext.LiveDataExtMainActivity;
+import me.peace.jetpack.viewmodel.ViewModelActivity;
 
 public class RootActivity extends BaseActivity {
 
