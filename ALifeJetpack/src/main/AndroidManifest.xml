@@ -20,6 +20,9 @@
         <activity android:name=".lifecycle.LifeCycleChildActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".navigation.NaviActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".viewmodel.ViewModelActivity">
         </activity>
     </application>

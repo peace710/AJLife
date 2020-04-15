@@ -7,5 +7,6 @@
         <item>Jetpack LiveData Ext</item>
         <item>Jetpack LifeCycle</item>
         <item>Jetpack ViewModel</item>
+        <item>Jetpack Navigation</item>
     </string-array>
 </resources>

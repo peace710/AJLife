@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navi"
+    app:startDestination="@id/navi">
+
+    <fragment
+        android:id="@+id/navi"
+        android:name="me.peace.jetpack.navigation.Navi"
+        android:label="fragment_navi"
+        tools:layout="@layout/fragment_navi" >
+        <action
+            android:id="@+id/action_navi_to_navi2"
+            app:destination="@id/navi2"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/navi2"
+        android:name="me.peace.jetpack.navigation.Navi2"
+        android:label="fragment_navi2"
+        tools:layout="@layout/fragment_navi2" />
+</navigation>
