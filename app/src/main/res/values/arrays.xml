@@ -9,5 +9,6 @@
         <item>Jetpack ViewModel</item>
         <item>Jetpack Navigation</item>
         <item>Jetpack Navigation Ext</item>
+        <item>Jetpack Navigation Deep Link</item>
     </string-array>
 </resources>

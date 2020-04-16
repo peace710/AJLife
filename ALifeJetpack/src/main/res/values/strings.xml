@@ -25,4 +25,6 @@
     <string name="home">首页</string>
     <string name="setting">设置</string>
     <string name="network">网络</string>
+    <string name="deep_link">Deep Link</string>
+    <string name="send_notification">send notification</string>
 </resources>

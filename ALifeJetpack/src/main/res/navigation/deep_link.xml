@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@+id/deep_link_main"
+    android:id="@+id/deep_link_nav">
+
+    <fragment
+        android:id="@+id/deep_link_main"
+        android:name="me.peace.jetpack.navigation.deeplink.DeepLinkMain"
+        android:label="fragment_main">
+
+        <action
+            android:id="@+id/action_main_2_link"
+            app:destination="@+id/deep_link"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"/>
+
+    </fragment>
+    <fragment
+        android:id="@+id/deep_link"
+        android:name="me.peace.jetpack.navigation.deeplink.DeepLink"
+        android:label="fragment_link">
+
+        <!-- 为destination添加<deepLink/>标签 -->
+        <!-- adb shell am start -a android.intent.action.VIEW -d "https://github.com/peace710/1991" -->
+        <deepLink app:uri="https://github.com/peace710/{params}"/>
+
+    </fragment>
+
+</navigation>
