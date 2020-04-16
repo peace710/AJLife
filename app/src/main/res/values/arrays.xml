@@ -8,5 +8,6 @@
         <item>Jetpack LifeCycle</item>
         <item>Jetpack ViewModel</item>
         <item>Jetpack Navigation</item>
+        <item>Jetpack Navigation Ext</item>
     </string-array>
 </resources>

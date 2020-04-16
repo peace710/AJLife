@@ -19,13 +19,14 @@ import me.peace.jetpack.lifecycle.LifeCycleActivity;
 import me.peace.jetpack.livedata.LiveDataMainActivity;
 import me.peace.jetpack.livedata.ext.LiveDataExtMainActivity;
 import me.peace.jetpack.navigation.NaviActivity;
+import me.peace.jetpack.navigation.ext.NaviExtActivity;
 import me.peace.jetpack.viewmodel.ViewModelActivity;
 
 public class RootActivity extends BaseActivity {
 
     private Class[] targetClass = new Class[]{ HookClickActivity.class , HookActivity.class,
         LiveDataMainActivity.class, LiveDataExtMainActivity.class, LifeCycleActivity.class,
-        ViewModelActivity.class, NaviActivity.class};
+        ViewModelActivity.class, NaviActivity.class, NaviExtActivity.class};
 
     private RecyclerView root;
     private List<String> list;

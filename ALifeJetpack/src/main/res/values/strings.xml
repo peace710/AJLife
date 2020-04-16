@@ -14,8 +14,15 @@
     <string name="common">common:</string>
     <string name="view_model">view_model:</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="navi_2_fragment">go to fragment</string>
     <string name="navi_3_fragment">go to fragment with args</string>
+
+    <string name="toolbar">toolbar</string>
+    <string name="bottom_menu">bottom_menu</string>
+    <string name="drawer_layout">drawerLayout</string>
+
+    <string name="home">首页</string>
+    <string name="setting">设置</string>
+    <string name="network">网络</string>
 </resources>

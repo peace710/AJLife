@@ -23,6 +23,18 @@
         <activity android:name=".navigation.NaviActivity"
             android:screenOrientation="portrait">
         </activity>
+        <activity android:name=".navigation.ext.NaviExtActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".navigation.ext.NaviBottomActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".navigation.ext.NaviMenuActivity"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity android:name=".navigation.ext.NaviDrawerActivity"
+            android:screenOrientation="portrait">
+        </activity>
         <activity android:name=".viewmodel.ViewModelActivity">
         </activity>
     </application>
