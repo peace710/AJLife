@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.concurrent.Executors;
+
 import androidx.appcompat.app.AppCompatActivity;
 import me.peace.app.R;
 import me.peace.app.media.music.IMedia;
@@ -33,22 +35,39 @@ public class AudioMediaActivity extends AppCompatActivity {
         pause = findViewById(R.id.pause);
 
         play.setOnClickListener(v -> {
-            media.play();
-            text.setText(play.getText());
+            try {
+                media.play();
+                text.setText(play.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
         pause.setOnClickListener(v -> {
-            media.pause();
-            text.setText(pause.getText());
+            try {
+                media.pause();
+                text.setText(pause.getText());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         });
     }
 
     private void init(){
-//        media = new MusicSoundPool();
-//        media = new MusicMediaPlayer();
-        media = new MusicPlayer();
-        media.init(this);
-//                    media.setDataSource(R.raw.marvel_studios);
-        media.setDataSource(path);
+        Executors.newSingleThreadExecutor().execute(new Runnable() {
+            @Override
+            public void run() {
+                //        media = new MusicSoundPool();
+                //        media = new MusicMediaPlayer();
+                try {
+                    media = new MusicPlayer();
+                    media.init(AudioMediaActivity.this);
+                    //                    media.setDataSource(R.raw.marvel_studios);
+                    media.setDataSource(path);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
     @Override
