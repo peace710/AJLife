@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import me.peace.app.R;
 import me.peace.app.adapter.StringAdapter;
+import me.peace.app.media.AudioMediaActivity;
 import me.peace.base.BaseActivity;
 import me.peace.hook.activity.HookActivity;
 import me.peace.hook.activity.HookClickActivity;
@@ -25,7 +26,8 @@ import me.peace.jetpack.viewmodel.ViewModelActivity;
 
 public class RootActivity extends BaseActivity {
 
-    private Class[] targetClass = new Class[]{ HookClickActivity.class , HookActivity.class,
+    private Class[] targetClass = new Class[]{AudioMediaActivity.class,HookClickActivity.class ,
+        HookActivity.class,
         LiveDataMainActivity.class, LiveDataExtMainActivity.class, LifeCycleActivity.class,
         ViewModelActivity.class, NaviActivity.class, NaviExtActivity.class, DeepLinkActivity.class};
 
