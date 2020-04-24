@@ -61,17 +61,17 @@ public class Error {
                 }).subscribe(new Consumer<String>() {
                     @Override
                     public void accept(String s) throws Throwable {
-                        LogUtils.d(TAG, "RxJava Observable Operator onErrorResumeNext: s = [" + s + "]");
+                        LogUtils.d(TAG, "RxJava Observable Operator OnErrorResumeNext: s = [" + s + "]");
                     }
                 }, new Consumer<Throwable>() {
                     @Override
                     public void accept(Throwable throwable) throws Throwable {
-                        LogUtils.d(TAG, "RxJava Observable Operator onErrorResumeNext error:" + throwable);
+                        LogUtils.d(TAG, "RxJava Observable Operator OnErrorResumeNext error:" + throwable);
                     }
                 }, new Action() {
                     @Override
                     public void run() throws Throwable {
-                        LogUtils.d(TAG, "RxJava Observable Operator onErrorResumeNext complete");
+                        LogUtils.d(TAG, "RxJava Observable Operator OnErrorResumeNext complete");
                     }
                 });
             }
