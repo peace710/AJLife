@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="me.peace.jetpack">
+    package="me.peace.jetpack"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <application>
         <activity android:name=".livedata.LiveDataMainActivity"
@@ -41,5 +42,37 @@
         </activity>
         <activity android:name=".viewmodel.ViewModelActivity">
         </activity>
+
+        <provider
+            android:authorities="${applicationId}.androidx-startup"
+            android:name="androidx.startup.InitializationProvider"
+            android:exported="false"
+            tools:node="remove">
+            <meta-data android:name="me.peace.jetpack.startup.LoggerInitializer"
+                android:value="androidx.startup"
+                />
+        </provider>
+
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="${applicationId}.workmanager-init"
+            tools:node="remove"
+            android:exported="false" />
+
+    <!--    <provider
+            android:authorities="${applicationId}.androidx-startup"
+            android:name="androidx.startup.InitializationProvider"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data android:name="me.peace.jetpack.startup.LoggerInitializer"
+                android:value="androidx.startup"
+                />
+        </provider>
+
+        <provider
+            android:name="androidx.work.impl.WorkManagerInitializer"
+            android:authorities="${applicationId}.workmanager-init"
+            tools:node="remove"
+            android:exported="false" />-->
     </application>
 </manifest>

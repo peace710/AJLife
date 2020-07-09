@@ -8,6 +8,8 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 
+import me.peace.jetpack.startup.Initializer;
+
 public class App extends Application {
     @Override
     public void onCreate() {
@@ -54,6 +56,8 @@ public class App extends Application {
 
             }
         });
+
+        Initializer.getInstance().start(this);
     }
 
     private boolean isGray(){

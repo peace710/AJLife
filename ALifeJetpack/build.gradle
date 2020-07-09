@@ -40,6 +40,8 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0'
     implementation project(path: ':ALifeLib')
     implementation 'org.jetbrains:annotations-java5:15.0'
+    implementation "androidx.startup:startup-runtime:1.0.0-alpha01"
+    implementation "androidx.work:work-runtime:2.3.4"
     implementation 'androidx.navigation:navigation-fragment:2.2.1'
     implementation 'androidx.navigation:navigation-ui:2.2.1'
 
