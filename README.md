@@ -18,4 +18,8 @@ Some case when learning Android and Java
 [1.Hook](https://github.com/peace710/AJLife/tree/master/ALifeHook/src/main/java/me/peace/hook)<br/>
 [2.Jetpack](https://github.com/peace710/AJLife/tree/master/ALifeJetpack/src/main)<br/>
 
+## 基础知识
+[1.Http](https://github.com/peace710/AJLife/blob/master/network/network.md)<br/>
+[2.加解密与编解码](https://github.com/peace710/AJLife/blob/master/crypt/crypt.md)<br/>
+
 
