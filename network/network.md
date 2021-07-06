@@ -1,13 +1,13 @@
-#Http
+# Http
 Http超文本传输协议，运行于TCP层之上，是个应用层协议。Http指定了浏览器/客户端发送什么样请求到服务器，服务器又是以什么样内容响应浏览器/客户端。
 
-###通信过程
+### 通信过程
 （1）浏览器/客户端与服务器建立连接
 （2）浏览器/客户端发送请求至服务器
 （3）服务器接受请求，根据请求内容进行处理响应
 （4）浏览器/客户端与服务器断开连接
 
-###http地址格式
+### http地址格式
 [协议类型][服务器地址][路径]
 举例：http://github.com/peace710?tab=repositories
 协议类型：http://
@@ -15,7 +15,7 @@ Http超文本传输协议，运行于TCP层之上，是个应用层协议。Http
 路径(Path)：/peace710?tab=repositories
 
 ### http请求与响应
-#####Request
+##### Request
 ```
 POST /peace710?tab=repositories HTTP/1.1 
 Host:github.com
@@ -24,7 +24,7 @@ Content-Length:16
 
 Please follow me
 ```
-#####Response
+##### Response
 ```
 HTTP/1.1 200 OK
 Content-Type:application/json;charset=utf-8
@@ -35,7 +35,7 @@ Content-Encoding:gzip
 [{"id":"10086","username":"peace710","age":20}]
 ```
 
-####Request Method
+#### Request Method
 请求方式
 * GET 获取资源；没有Body
 * POST 增加或者更改资源；有Body
@@ -64,7 +64,7 @@ Content-Encoding:gzip
 * 5xx 服务器错误   
   500 （内部错误）服务器内部出错，无法完成请求
 
-#####Header
+##### Header
 HTTP消息的元数据（metadata）
 * Host:服务器主机地址，采用DNS域名解析寻址
 * Content-Type/Content-Length:内容的类型/长度
@@ -97,7 +97,7 @@ HTTP消息的元数据（metadata）
 * Etag:服务器返回的报文hash
 * If-None-Match:该报文内容如果未发生变更，即上次的内容hash未变更，返回304，否则返回最新数据，请求时携带
 
-#####Body
+##### Body
 * Content-Length:内容的长度（字节）
 * Content-Type:内容的类型
     1. text/html:html文本，用于浏览器页面的响应
