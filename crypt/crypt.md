@@ -34,7 +34,7 @@ URL encoding
 原理：使用密钥和加密算法对数据进行转换，得到的无意义数据即为密文；</br>
 使用密钥和解密算法对密文进行逆向转换，得到原始数据。
 常见算法：DES,AES,3DES</br>
-![-w580](https://github.com/peace710/AJLife/blob/master/crypt/image/16255605480858.jpg)
+![-w580](https://github.com/peace710/AJLife/blob/master/crypt/image/16256224266526.jpg)
 
 缺点：不能在不安全⽹络上传输密钥，⼀旦密钥泄露则加密通信失败
 
@@ -44,10 +44,10 @@ URL encoding
 其他应用：数字签名</br>
 
 公钥加密</br>
-![-w599](https://github.com/peace710/AJLife/blob/master/crypt/image/16255606137778.jpg)
+![-w599](https://github.com/peace710/AJLife/blob/master/crypt/image/16256224717929.jpg)
 
 私钥验签</br>
-![-w610](https://github.com/peace710/AJLife/blob/master/crypt/image/16255607649809.jpg)
+![-w610](https://github.com/peace710/AJLife/blob/master/crypt/image/16256226139980.jpg)
 
 签名验证时，一般会计算出原数据的hash，然后再签名验证</br>
 原因是绝大多数情况下原数据会比较大，直接进行签名，签名所占的时间比较长，空间也会比较大，影响性能。</br>
