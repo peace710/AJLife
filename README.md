@@ -21,5 +21,8 @@ Some case when learning Android and Java
 ## 基础知识
 [1.Http](https://github.com/peace710/AJLife/blob/master/network/network.md)<br/>
 [2.加解密与编解码](https://github.com/peace710/AJLife/blob/master/crypt/crypt.md)<br/>
+[3.自动化测试之Monkey](https://github.com/peace710/AJLife/blob/master/autotest/monkey.md)<br/>
+[4.自动化测试之MonkeyScript](https://github.com/peace710/AJLife/blob/master/autotest/monkey_script.md)<br/>
+[5.自动化测试之MonkeyRunner](https://github.com/peace710/AJLife/blob/master/autotest/monkey_runner.md)<br/>
 
 
