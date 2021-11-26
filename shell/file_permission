@@ -1,0 +1,8 @@
+#!/bin/bash
+ls -l > file.txt
+var=`awk '$7=="bootanimation" {print $1}' file.txt`
+if [ $var != "-rwxrwxrwx" ];then
+    chmod 777 bootanimation
+fi
+rm file.txt
+./bootanimation
