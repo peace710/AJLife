@@ -1,0 +1,7 @@
+#!/bin/bash
+packageName="tv.icntv.ott"
+if [ -n "$1" ];then
+	packageName=$1 
+fi
+echo "pm clear $packageName"
+pm clear $packageName && mkdir -p /sdcard/Android/data/$packageName/files/DebugLog
