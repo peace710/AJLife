@@ -6,7 +6,7 @@ if "%1" == "-d" (
 if not exist "clear_mark.sh" (
 	(
 		echo #!/bin/bash
-		echo packageName="tv.icntv.ott"
+		echo packageName="me.peace.android"
 		echo if [ -n "$1" ];then
 		echo 	packageName=$1 
 		echo fi

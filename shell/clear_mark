@@ -1,5 +1,5 @@
 #!/bin/bash
-packageName="tv.icntv.ott"
+packageName="me.peace.android"
 if [ -n "$1" ];then
 	packageName=$1 
 fi
