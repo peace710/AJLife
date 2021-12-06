@@ -1,0 +1,7 @@
+set term png font "LigaMenlo-Regular.ttf,12"
+set output "launch.png"
+set encoding utf8
+set xlabel "次数"
+set ylabel "时间（ms）"
+set title "应用启动时间表"
+plot "launch.txt" using 1:2 with linespoints linecolor 3 linewidth 2 pointtype 7 pointsize 2 title "时间"
